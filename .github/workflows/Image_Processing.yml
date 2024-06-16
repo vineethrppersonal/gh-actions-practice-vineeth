@@ -47,7 +47,7 @@ jobs:
         git config --local user.name "vineethrppersonal"
         
         if [ "${{ github.event.inputs.task }}" == "resize" ]; then
-          git add images/convert-output.jpg
+          git add images/resize-output.jpg
         else git add images/convert-output.png
         fi
         
