@@ -40,3 +40,11 @@ jobs:
           echo "Unsupported task: ${{ github.event.inputs.task }}"
           exit 1
         fi
+
+    - name: Archive images
+      uses: actions/upload-artifact@v2
+      with:
+        name: processed-images
+        path: |
+          images/resize-output.jpg
+          images/convert-output.png
