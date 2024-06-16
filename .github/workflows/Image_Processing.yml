@@ -45,7 +45,11 @@ jobs:
       run: |
         git config --local user.email "vineethrparashar@gmail.com"
         git config --local user.name "vineethrppersonal"
-
-        git add images/convert-output.png
+        
+        if [ "${{ github.event.inputs.task }}" == "resize" ]; then
+          git add images/convert-output.jpg
+        else git add images/convert-output.png
+        fi
+        
         git commit -m "output image"
         git push origin HEAD:main
