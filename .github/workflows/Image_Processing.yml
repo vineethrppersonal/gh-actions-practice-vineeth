@@ -46,6 +46,6 @@ jobs:
         git config --local user.email "vineethrparashar@gmail.com"
         git config --local user.name "vineethrppersonal"
 
-        git add images/resize-output.jpg images/convert-output.png
+        git add images/convert-output.png
         git commit -m "output image"
         git push origin HEAD:main
