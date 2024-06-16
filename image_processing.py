@@ -30,10 +30,12 @@ if __name__ == "__main__":
         height = 600
         output_path = "images/resize-output.jpg"
         resize_image(input_path, output_path, (width, height))
+        print(f"Resized image saved to: {output_path}")
     elif task == "convert":
         output_path = "images/convert-output.png"
         output_format = "PNG"
         convert_image_format(input_path, output_path, output_format)
+        print(f"Resized image saved to: {output_path}")
     else:
         print("Unsupported task. Please use 'resize' or 'convert'.")
         sys.exit(1)
