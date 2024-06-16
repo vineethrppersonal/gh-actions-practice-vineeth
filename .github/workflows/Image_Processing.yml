@@ -41,10 +41,11 @@ jobs:
           exit 1
         fi
 
-    - name: Archive images
-      uses: actions/upload-artifact@v2
-      with:
-        name: processed-images
-        path: |
-          images/resize-output.jpg
-          images/convert-output.png
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+
+        git add images/resize-output.jpg images/convert-output.png
+        git commit -m "output image"
+        git push origin HEAD:main
