@@ -43,8 +43,8 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        git config --local user.email "actions@github.com"
-        git config --local user.name "GitHub Actions"
+        git config --local user.email "vineethrparashar@gmail.com"
+        git config --local user.name "vineethrppersonal"
 
         git add images/resize-output.jpg images/convert-output.png
         git commit -m "output image"
