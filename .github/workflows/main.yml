@@ -1,0 +1,39 @@
+name: Resize/Convert Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Select the task to perform on the image'
+        required: true
+        default: 'resize'
+        type: choice
+        options:
+          - resize
+          - convert
+
+jobs:
+  image_processing:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install pillow
+
+    - name: Run image processing script
+      run: |
+        if [ "${{ github.event.inputs.task }}" == "resize" ]; then
+          python image_processing.py resize
+        elif [ "${{ github.event.inputs.task }}" == "convert" ]; then
+          python image_processing.py convert
+        else
+          echo "Unsupported task: ${{ github.event.inputs.task }}"
+          exit 1
